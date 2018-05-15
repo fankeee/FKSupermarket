@@ -1,0 +1,309 @@
+* {
+	color: white;
+	font-family: "微软雅黑";
+}
+
+.simple-text {
+	margin: 0px;
+	padding: 0px;
+	width: 300px;
+	height: 32px;
+	margin-top: 2px;
+	margin-bottom: 20px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-indent: 10px;
+}
+
+form {
+	color: #009587;
+	font-size: 16px;
+	margin-top: 30px;
+}
+
+.container-fluid {
+	background-color: black;
+}
+
+#header {
+	height: 100px;
+	border: 1px solid white;
+}
+
+#part1 {
+	margin-left: 50px;
+	height: 100%;
+	width: 260px;
+	float: left;
+}
+
+#part4 {
+	height: 100%;
+	width: 120px;
+	float: left;
+	margin-left: 20px;
+}
+
+#part2 {
+	height: 100%;
+	float: left;
+	margin-left: 20px;
+}
+
+#part3 {
+	height: 100%;
+	float: left;
+	margin-left: 20px;
+}
+
+#money-rest {
+	display: block;
+	float: left;
+	clear: both;
+	margin-top: 32px;
+	margin-bottom: 15px;
+}
+
+#customer-level, #but-rest, #integration {
+	display: block;
+	float: left;
+	clear: both;
+	margin-top: 32px;
+}
+
+#trust_money, #get_money, #zl_money {
+	color: black;
+	display: block;
+	float: left;
+	clear: both;
+	margin-top: 13px;
+	margin-bottom: 15px;
+}
+
+#foot-part2-1, #foot-part3-1, #foot-part4-1 {
+	display: block;
+	float: left;
+	clear: both;
+	margin-top: 22px;
+	margin-bottom: 15px;
+}
+
+#now-time {
+	display: block;
+	float: left;
+	clear: both;
+	margin-top: 32px;
+}
+
+#vip-no, #vip-type, #discount, #integration {
+	display: block;
+	float: left;
+	clear: both;
+}
+
+#customer-level-son {
+	display: block;
+	float: right;
+	width: 150px;
+	margin-top: -2px;
+}
+
+#vip-no-son {
+	display: block;
+	float: right;
+	width: 100px;
+	margin-top: 20px;
+	margin-left: 40px;
+}
+
+#but-rest-son {
+	display: block;
+	float: right;
+	width: 145px;
+}
+
+#money-rest-son {
+	display: block;
+	float: right;
+	width: 100px;
+	border-bottom: 1px solid white;
+}
+
+#zl-rest-son {
+	color: #777;;
+	margin-top: 6px;
+	display: block;
+	font-size: xx-large;
+	float: left;
+	width: 200px;
+	border-bottom: 1px solid white;
+}
+
+#change-rest-son {
+	display: block;
+	float: right;
+	width: 100px;
+	border-bottom: 1px solid black;
+}
+
+#vip-type-son, #integration-son, #discount-son {
+	display: block;
+	float: right;
+	width: 100px;
+	border-bottom: 1px solid white;
+}
+
+#content {
+	height: 540px;
+	/* border: 1px solid white; */
+}
+
+#footer {
+	height: 100px;
+	border: 1px solid white;
+}
+
+#situation {
+	height: 100%;
+	border: 1px solid white;
+}
+
+#customer-info {
+	height: 100%;
+	border: 1px solid white;
+}
+
+#main {
+	height: 100%;
+	border: 1px solid white;
+}
+
+#goods-info {
+	height: 100%;
+	border: 1px solid white;
+}
+
+#foot-part1 {
+	margin: 0px auto;
+	margin-top: 5px;
+	padding: 5px;
+	width: 340px;
+	height: 40px;
+	border: 1px solid #A6A6A6;
+}
+
+#foot-part2, #foot-part3, #foot-part4 {
+	margin-left: 55px;
+	display: block;
+	float: left;
+}
+
+#foot-part2-2, #foot-part3-2, #foot-part4-2 {
+	display: block;
+	float: right;
+	width: 80px;
+	border-bottom: 1px solid white;
+}
+
+#company-info {
+	height: 100%;
+	border: 1px solid white;
+}
+
+#company-info1 {
+	float: left;
+	height: 42px;
+	margin-left: 10px;
+	margin-top: 40px;
+}
+
+#company-info2 {
+	float: left;
+	height: 42px;
+	margin-left: 10px;
+	margin-top: 40px;
+}
+
+#company-info3 {
+	float: left;
+	height: 42px;
+	margin-left: 10px;
+	margin-top: 40px;
+}
+
+#money-part1 {
+	float: left;
+	height: 42px;
+	margin-left: 10px;
+}
+
+#money-part2 {
+	float: left;
+	height: 42px;
+	margin-left: 10px;
+	margin-top: 30px;
+}
+
+#money-part1-1 {
+	display: block;
+	float: left;
+	clear: both;
+	margin-top: 36px;
+	margin-bottom: 15px;
+}
+
+#money-part1-2 {
+	display: block;
+	float: right;
+	width: 100px;
+	border-bottom: 1px solid white;
+}
+
+#bigtitle {
+	letter-spacing: 10px;
+	display: block;
+	margin: 0px auto;
+	text-align: center;
+	font-size: 50px;
+	margin-top: 160px;
+	font-weight: bold;
+	color: white;
+}
+
+#money {
+	height: 100%;
+	border: 1px solid white;
+}
+
+#btn-back {
+	display: block;
+	margin-top: 28px;
+	margin-left: 45px;
+}
+
+#money-back {
+	display: block;
+	margin-top: -2px;
+	margin-left: 45px;
+}
+
+#true-back {
+	margin: 0 10px;
+	display: block;
+	margin-top: -2px;
+	width: 80px;
+	float: right;
+}
+
+#btn-submit {
+	display: block;
+	margin-top: -4px;
+}
+
+#goods-info-text {
+	color: black;
+}
+
+#member-info-text {
+	color: black;
+}

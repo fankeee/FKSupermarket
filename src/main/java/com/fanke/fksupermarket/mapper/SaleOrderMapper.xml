@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanke.fksupermarket.mapper.SaleOrderMapper">
+
+	<!-- 查询所有销售订单public List getAllSaleOrder(); -->
+	<select id="getAllSaleOrder" resultType="SaleOrder">
+		select
+		s_id,u_id,s_totalamount,DATE_FORMAT(S_saleDate,'%Y-%c-%d') S_saleDate
+		from t_saleorder
+	</select>
+
+	<!-- 多条件查询public List<SaleOrder> conditionalQuery(HashMap<String, Object> map); -->
+	<select id="conditionalQuery" parameterType="HashMap" resultType="SaleOrder" >
+		select * from t_saleorder
+		<where>
+			<if test="id != null and id != ''">
+				and s_id = #{id}
+			</if>
+			<if test="uid != null and uid != ''">
+				and u_id = #{uid}
+			</if>
+			<if test="startdate != null and startdate != ''">
+				and unix_timestamp(s_saleDate) &gt; unix_timestamp('${startdate}') 
+			</if>
+			<if test="enddate != null and enddate != ''">
+				and unix_timestamp(s_saleDate) &lt; unix_timestamp('${enddate}') 
+			</if>
+		</where>
+	</select>
+	
+	<!-- 按月查询销售信息 public List<Monthly> monthlyStatistics(); -->
+	<select id="monthlyStatistics" resultType="Monthly">
+		select month(s_saleDate) month,sum(s_totalamount) total from t_saleorder
+		group by month(s_saleDate)
+	</select>
+	
+	<!-- 添加销售订单 public int addSaleOrder(SaleOrder saleOrder); -->
+	<insert id="addSaleOrder" parameterType="SaleOrder">
+		<!-- 添加主键 -->
+		<selectKey keyProperty="s_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 添加其他 -->
+		insert into
+		t_saleorder(u_id,s_totalAmount,s_saleDate)
+		values(#{u_id},#{s_totalAmount},now())
+	</insert>	
+</mapper>

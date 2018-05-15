@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+	<!-- 1、加载db配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+
+	<!-- 2、数据库连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="30" />
+		<property name="maxIdle" value="5" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+
+	<!-- 3、spring管理sqlsessionfactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 加载数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 配置mybatis的bean别名 -->
+		<property name="typeAliasesPackage" value="com.fanke.fksupermarket.po" />
+		<property name="configLocation" value="classpath:/SqlMapConfig.xml"/>
+	</bean>
+
+	<!-- 4、mapper扫描器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.fanke.fksupermarket.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
+	<!-- ===========================shiro=================================== -->
+	<!-- 自定义Realm -->
+	<bean id="myRealm" class="com.fanke.fksupermarket.realm.MyRealm" />
+
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="myRealm" />
+	</bean>
+
+	<!-- Shiro过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口,这个属性是必须的 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 身份认证失败，则跳转到登录页面的配置 -->
+		<property name="loginUrl" value="/jsp/login.jsp" />
+		<!-- 权限认证失败，则跳转到指定页面 -->
+		<property name="unauthorizedUrl" value="/jsp/unauthorized.jsp" />
+		<!-- 自定义过滤器 -->
+		<property name="filters">
+			<map>
+				<entry key="roles">
+					<bean class="com.fanke.fksupermarket.util.MyRolesAuthorizationFilter" />
+				</entry>
+			</map>
+		</property>
+		<!-- Shiro连接约束配置,即过滤链的定义 -->
+		<property name="filterChainDefinitions">
+			<!-- 
+				1、authc 表示需要认证的链接 
+				2、perms[/url] 表示该链接需要拥有对应的资源/权限才能访问 
+				3、roles[admin]表示需要对应的角色才能访问 
+				4、perms[admin:url] 表示需要对应角色的资源才能访问 
+			-->
+			<value>
+				<!-- 登陆 -->
+				/user/login=anon
+				<!-- 注册 -->
+				/jsp/regist.jsp=anon
+				<!-- 主页面 -->
+				/jsp/index.jsp=authc
+				<!-- /jsp/sonpage*/**=roles[manager] -->
+				<!-- 商品采购（经理，仓库管理员） -->
+				/jsp/sonpage*/purchase*/**=roles["manager,stockman"]
+				<!-- 商品销售 （经理，收银员）-->
+				/jsp/sonpage*/sale*/**=roles["manager,cashier"]
+				<!-- 商品库存（经理，仓库管理员） -->
+				jsp/sonpage*/store*/**=roles["manager,stockman"]
+				<!-- 营业统计 -->
+				/jsp/sonpage*/statistics*/**=roles["manager,stockman,cashier"]
+				<!-- 人事管理 -->
+				/jsp/sonpage*/clerk*/**=roles["manager"]
+				<!-- 系统维护 -->
+				/jsp/sonpage*/maintenance*/**=roles["manager"]
+				<!-- POS前台销售 -->
+				/jsp/pos.jsp=roles["manager,cashier"]
+			</value>
+		</property>
+	</bean>
+
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- 开启Shiro注解 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor" />
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	<!-- ============================================================== -->
+</beans>

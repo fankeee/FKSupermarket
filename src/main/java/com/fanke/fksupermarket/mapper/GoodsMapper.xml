@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanke.fksupermarket.mapper.GoodsMapper">
+
+	<!-- 根据商品ID查询 public Goods findGoodsById(int g_id) -->
+	<select id="findGoodsById" parameterType="Integer" resultType="Goods">
+		select * from t_goods where g_id=#{g_id}
+	</select>
+	
+	<!--  更新商品信息public int updateGoods(Goods goods); -->
+	<update id="updateGoods" parameterType="Goods">
+		update t_goods 
+		<set>
+			<if test="pro_id != null ">
+				pro_id=#{pro_id},
+			</if>
+			<if test="c_id != null ">
+				c_id=#{c_id},
+			</if>
+			<if test="g_name != null and g_name != '' ">
+				G_name=#{g_name},
+			</if>
+			<if test="g_purchasePrice != null ">
+				G_purchasePrice=#{g_purchasePrice},
+			</if>
+			<if test="g_sellingPrice != null ">
+				G_sellingPrice=#{g_sellingPrice},
+			</if>
+			<if test="g_unit != null and g_unit = '' ">
+				G_unit=#{g_unit},
+			</if>
+			<if test="g_productionDate != null">
+				g_productionDate=#{g_productionDate},
+			</if>
+			<if test="g_shelfLife != null and g_shelfLife != '' ">
+				G_shelfLife=#{g_shelfLife},
+			</if>
+			<if test="g_inventory != null ">
+				G_inventory=#{g_inventory},
+			</if>
+			<if test="g_productionAddress != null and g_productionAddress != '' ">
+				G_productionAddress=#{g_productionAddress}
+			</if>
+		</set>
+		where G_id=#{g_id}
+	</update>
+	
+	<!--  查询所有商品  public List<Goods> findAllGoods(); -->
+	<select id="findAllGoods" resultType="Goods">
+		select * from t_goods
+	</select>
+	
+	<!-- 条件查询 public List<Goods> conditionalQuery(Map<Object, Object> conditionalMap); -->
+	<select id="conditionalQuery" parameterType="HashMap" resultType="Goods">
+		select * from t_goods
+		<where>
+			<if test="g_name != null and g_name != '' ">
+				g_name like '%${g_name}%'
+			</if>
+		</where>
+	</select>
+	
+	<!-- 根据ID删除商品信息 public void deleteGoodsById(Integer g_id); -->
+	<delete id="deleteGoodsById" parameterType="java.lang.Integer">
+		delete from t_goods where g_id=#{g_id}
+	</delete>
+	
+</mapper>

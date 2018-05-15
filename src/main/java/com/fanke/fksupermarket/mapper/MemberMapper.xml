@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.fanke.fksupermarket.mapper.MemberMapper">
+
+	<!-- 根据手机号查询会员 public Member getMemberByphone(String m_phone); -->
+	<select id="getMemberByphone" parameterType="java.lang.String"
+		resultType="Member">
+		select * from t_member where M_phone = #{M_phone}
+	</select>
+
+	<!-- 添加会员 public void addMember(Member member); -->
+	<insert id="addMember" parameterType="member">
+		<selectKey keyProperty="m_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		insert into t_member(m_name,m_integral,m_date,m_phone)
+		values(#{m_name},#{m_integral},#{m_date},#{m_phone})
+	</insert>
+
+	<!-- 查询所有会员 public List<Member> findAllMember(); -->
+	<select id="findAllMember" resultType="Member">
+		select * from t_member
+	</select>
+
+	<!-- 多条件查询 public List<Member> conditionalQuery(Member member); -->
+	<select id="conditionalQuery" resultType="Member">
+		select * from t_member
+		<where>
+			<if test="m_name != null and m_name != '' ">
+				m_name=#{m_name}
+			</if>
+			<if test="m_phone != null and m_phone != '' ">
+				and m_phone=#{m_phone}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据ID删除 public void delMemberById(Integer m_id); -->
+	<select id="delMemberById" parameterType="java.lang.Integer">
+		delete from t_member
+		where m_id=#{m_id}
+	</select>
+
+	<!-- 根据ID查询public Member findMemberById(Integer m_id); -->
+	<select id="findMemberById" parameterType="java.lang.Integer"
+		resultType="Member">
+		select * from t_member where m_id=#{m_id}
+	</select>
+
+	<!-- 根据ID修改 public void updateMember(Member member); -->
+	<update id="updateMember" parameterType="Member">
+		update t_member
+		<set>
+			<if test="m_name != null and m_name != '' ">
+				m_name=#{m_name},
+			</if>
+			<if test="m_integral != null and m_integral != '' ">
+				m_integral=#{m_integral},
+			</if>
+			<if test="m_date != null">
+				m_date=#{m_date},
+			</if>
+			<if test="m_phone != null and m_phone != '' ">
+				m_phone=#{m_phone}
+			</if>
+		</set>
+		where m_id=#{m_id}
+	</update>
+
+</mapper>

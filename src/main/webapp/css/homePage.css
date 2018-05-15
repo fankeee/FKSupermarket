@@ -1,0 +1,161 @@
+* {
+	font-family: "微软雅黑";
+}
+
+#div-body {
+	background-color: #EEEEEE;
+}
+
+#header {
+	/*background-color: rgb(121, 154, 225);*/
+	background-color: #1F262D;
+	height: 98px;
+}
+
+#icon {
+	width: 45px;
+	height: 45px;
+	margin: 15px;
+	margin-top: 29px;
+	float: left;
+}
+
+#header-title {
+	display: block;
+	height: 97px;
+	line-height: 97px;
+	font-size: 40px;
+	color: white;
+	float: left;
+	letter-spacing: 8px;
+}
+
+#navigation {
+	/*background-color: rgb(30, 120, 207);*/
+	background-color: #2E363F;
+	padding: 0px;
+	height: 572px;
+}
+
+#content {
+	/*border: 1px solid black;*/
+	height: 573px;
+	padding: 0px;
+}
+
+#navigation-btn {
+	display: block;
+	width: 100%;
+	font-size: 15px;
+	letter-spacing: 2px;
+	text-align: left;
+	height: 50px;
+	line-height: 45px;
+	border: none;
+	/*border-top: 2px solid rgb(39, 133, 209);
+				border-left: 1px solid rgb(30, 120, 207);
+				border-bottom: 2px solid rgb(39, 133, 209);
+				background-color: rgb(30, 120, 207);*/
+	border-left: 2px solid #2E363F;
+	border-top: 2px solid #37414B;
+	background-color: #2E363F;
+	margin: 0px;
+	padding: 0px;
+	color: #939DA8;
+	width: 100%;
+}
+
+#navigation-btn:hover {
+	text-decoration: none;
+	color: white;
+}
+
+#list {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+#list li {
+	list-style: none;
+}
+
+#div-navigation-hr {
+	height: 1px;
+	/*background-color: rgb(19, 105, 190);*/
+	background-color: #1F262D;
+	margin: 0px;
+	padding: 0px;
+}
+
+#frame-div {
+	width: 100%;
+	height: 100%;
+}
+
+#framework {
+	width: 100%;
+	height: 100%;
+}
+
+#img1, #img2, #img3, #img4, #img5, #img6 {
+	width: 21px;
+	height: 21px;
+	margin: 14px;
+	margin-left: 40px;
+	display: block;
+	float: left;
+	clear: both;
+}
+
+#div-footer {
+	width: 100%;
+	height: 63px;
+	float: left;
+}
+
+#div-hr {
+	width: 100%;
+	height: 1px;
+	background-color: #92C0E0;
+}
+
+#foot-firstline {
+	width: 425px;
+	margin: 10px auto;
+	color: #808080;
+	font-size: 13px;
+}
+
+#foot-secondline {
+	width: 370px;
+	margin: 10px auto;
+	color: #808080;
+	font-size: 13px;
+}
+
+#little-title {
+	color: white;
+	float: right;
+	position: relative;
+	top: 75px;
+	font-size: 13px;
+}
+
+#little-title-ul {
+	list-style: none;
+}
+
+#little-title-ul li {
+	float: left;
+	padding: 0px 7px;
+}
+
+#little-title-ul li a {
+	color: white;
+}
+
+#little-title-ul li a:hover {
+	color: #939DA8;
+	text-decoration: none;
+}

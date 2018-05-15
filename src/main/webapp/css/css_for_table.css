@@ -1,0 +1,43 @@
+/*鎬绘帶鍒讹紝鍙拷鐣ユ琛�*/
+
+.simple-table table tr:first-child,
+th:first-child {
+	background: #2E363F;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	height: 35px;
+}
+
+
+/*绗竴琛屾爣棰樿摑鑹茶儗鏅�*/
+
+.simple-table table {
+	border-top: 1pt solid #C1DAD7;
+	border-left: 1pt solid #C1DAD7;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.simple-table td{
+	padding: 5px 10px;
+	text-align: center;
+	border-right: 1pt solid #C1DAD7;
+	border-bottom: 1pt solid #C1DAD7;
+	font-size: 15px;
+	height: 33px;
+}
+
+.simple-table tr:nth-of-type(odd) {
+	background: #DDDDDD;
+}
+
+
+/* odd 鏍囪瘑濂囨暟琛岋紝even鏍囪瘑鍋舵暟琛� */
+
+.simple-table tr:hover {
+	background: white;
+}
+
+
+/*榧犳爣鎮仠鍚庤〃鏍艰儗鏅鑹�*/

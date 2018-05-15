@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanke.fksupermarket.mapper.SaleOrderDetailMapper">
+
+	<!-- 根据ID查询销售订单详细 public List<SaleOrderDetail> getSaleOrderDetailById(Integer s_id); -->
+	<select id="getSaleOrderDetailById" parameterType="Integer" resultType="SaleOrderDetail">
+		select * from t_saleorderdetail where s_id=#{s_id}
+	</select>
+
+	<!-- 添加销售订单明细 public int addSaleOrderDetail(SaleOrderDetail saleOrderDetail); -->
+	<insert id="addSaleOrderDetail" parameterType="Saleorderdetail">
+		<!-- 2-1:添加主键 ：指定主键的生成策略-->
+		<selectKey keyProperty="sod_id" resultType="int">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 2-2:添加其它 -->
+			insert into t_saleorderdetail(g_id,sod_number,s_id)
+		    values(#{g_id},#{sod_number},#{s_id})
+	</insert>
+</mapper>
+
+

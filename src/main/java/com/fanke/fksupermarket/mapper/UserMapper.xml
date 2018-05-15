@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanke.fksupermarket.mapper.UserMapper">
+
+	<!-- 根据用户ID查询public User findUserById(int userID); -->
+	<select id="findUserById" parameterType="Integer" resultType="User">
+		select * from t_user where u_id=#{userID}
+	</select>
+
+	<!-- 根据用户ID和密码查询public User findByIdAndPwd(User user); -->
+	<select id="findByIdAndPwd" parameterType="User" resultType="User">
+		select * from t_user where u_id=#{u_id} and u_pwd=#{u_pwd}
+	</select>
+
+	<!-- 获取角色名public Set<String> getRoles(String username); -->
+	<select id="getRoles" parameterType="java.lang.String" resultType="java.lang.String">
+		select r.R_name from t_user u,t_role r where u.R_id=r.R_id and u.u_name=#{username}
+	</select>
+
+	<!-- 根据用户名查询用户 public User getByUsername(String username); -->
+	<select id="getByUsername" parameterType="java.lang.String"
+		resultType="user">
+		select * from t_user where u_name = #{u_name}
+	</select>
+	
+	<!--  添加用户 public void addUser(User user); -->
+	<insert id="addUser" parameterType="User" >
+		<!-- 添加主键 -->
+		<selectKey keyProperty="u_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		insert into t_user(r_id,u_pwd,u_name,u_age,u_sex,u_tel) 
+			values(#{r_id},#{u_pwd},#{u_name},#{u_age},#{u_sex},#{u_tel}) 
+	</insert>
+
+	<!-- 按条件查询 public List<User> conditionalQuery(User); -->
+	<select id="conditionalQuery" parameterType="User" resultType="User" >
+		select * from t_user
+		<where>
+			<if test="u_id != null and u_id != '' ">
+				u_id=#{u_id}
+			</if>
+			<if test="u_name != null and u_name != '' ">
+				and u_name like '%${u_name}%'
+			</if>
+		</where>
+	</select>
+	
+	<!--  查询所有用户 public List findAllUser(); -->
+	<select id="findAllUser" resultType="User" >
+		select * from t_user
+	</select>
+	
+	<!-- 根据ID删除用户 public void deleteUserById(Integer u_id); -->
+	<delete id="deleteUserById">
+		delete from t_user where u_id=#{u_id}
+	</delete>
+	
+	<!-- 修改用户 public void updateUser(User user); -->
+	<update id="updateUser" parameterType="User">
+		update t_user
+		<set>
+			<if test="r_id != null and r_id != '' ">
+				r_id=#{r_id},
+			</if>
+			<if test="u_pwd != null and u_pwd != '' ">
+				u_pwd=#{u_pwd},
+			</if>
+			<if test="u_name != null and u_name != '' ">
+				u_name=#{u_name},
+			</if>
+			<if test="u_age != null and u_age != '' ">
+				u_age=#{u_age},
+			</if>
+			<if test="u_tel != null and u_tel != '' ">
+				u_tel=#{u_tel},
+			</if>
+			<if test="u_sex != null and u_sex != '' ">
+				u_sex=#{u_sex}
+			</if>
+		</set>
+		where u_id=#{u_id}
+	</update>
+	
+</mapper>
