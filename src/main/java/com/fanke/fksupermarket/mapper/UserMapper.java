@@ -32,10 +32,10 @@ public interface UserMapper {
 	/**
 	 * 获取角色名
 	 * 
-	 * @param username
+	 * @param userId
 	 * @return
 	 */
-	public Set<String> getRoles(String username);
+	public Set<String> getRoles(Integer userId);
 
 	/**
 	 * 根据用户名获取用户

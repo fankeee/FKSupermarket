@@ -40,9 +40,9 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public Set<String> getRoles(String username) {
+	public Set<String> getRoles(Integer userId) {
 		// TODO Auto-generated method stub
-		return userMapper.getRoles(username);
+		return userMapper.getRoles(userId);
 	}
 
 	@Override

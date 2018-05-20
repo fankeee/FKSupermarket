@@ -15,9 +15,9 @@
 		select * from t_user where u_id=#{u_id} and u_pwd=#{u_pwd}
 	</select>
 
-	<!-- 获取角色名public Set<String> getRoles(String username); -->
-	<select id="getRoles" parameterType="java.lang.String" resultType="java.lang.String">
-		select r.R_name from t_user u,t_role r where u.R_id=r.R_id and u.u_name=#{username}
+	<!-- 获取角色名public Set<String> getRoles(Integer userId); -->
+	<select id="getRoles" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select r.R_name from t_user u,t_role r where u.R_id=r.R_id and u.u_id=#{userId}
 	</select>
 
 	<!-- 根据用户名查询用户 public User getByUsername(String username); -->

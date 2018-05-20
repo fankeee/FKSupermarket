@@ -41,21 +41,16 @@ public class MyRealm extends AuthorizingRealm {
 	// 为当前登陆成功的用户授予权限和角色，已经登陆成功了
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		// System.out.println("PrincipalCollection=====授权");
 		log.debug("MyRealm-->>doGetAuthorizationInfo-->>授权");
-		String username = (String) principals.getPrimaryPrincipal(); // 获取用户名
-		// System.out.println("用户名：" + username);
-		log.debug("MyRealm-->>doGetAuthorizationInfo-->>用户名=" + username);
+		// 获取用户名
+		Integer userId = (Integer) principals.getPrimaryPrincipal(); 
+		log.debug("MyRealm-->>doGetAuthorizationInfo-->>用户ID=" + userId);
 
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-		Set<String> roles = userService.getRoles(username);
-		// System.out.println("roles:::::" + roles);
+		Set<String> roles = userService.getRoles(userId);
 		log.debug("MyRealm-->>doGetAuthorizationInfo-->>角色名=" + roles);
 		authorizationInfo.setRoles(roles);
-		/*
-		 * authorizationInfo.setStringPermissions(userService
-		 * .getPermissions(username));
-		 */
+		
 		return authorizationInfo;
 	}
 

@@ -113,13 +113,13 @@
 						</li>
 						<div id="div-navigation-hr">
 						</div>
-						<li>
+						<%-- <li>
 							<img src="${pageContext.request.contextPath }/img/6.png" id="img6" />
 							<a href="${pageContext.request.contextPath }/jsp/sonpage/maintenance/maintenance.jsp" 
 								target="framework" name="btn6" class="btn6" id="navigation-btn">系统维护</a>
 						</li>
 						<div id="div-navigation-hr">
-						</div>
+						</div> --%>
 					</ul>
 					<div id="calendar" class="calendar"></div>
 				</div>

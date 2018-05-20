@@ -25,10 +25,10 @@ public interface IUserService {
 	/**
 	 * 获取角色名
 	 * 
-	 * @param username
+	 * @param userId
 	 * @return
 	 */
-	public Set<String> getRoles(String username);
+	public Set<String> getRoles(Integer userId);
 
 	/**
 	 * 根据用户名查询用户

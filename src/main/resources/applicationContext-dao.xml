@@ -54,7 +54,7 @@
 		<!-- Shiro的核心安全接口,这个属性是必须的 -->
 		<property name="securityManager" ref="securityManager" />
 		<!-- 身份认证失败，则跳转到登录页面的配置 -->
-		<property name="loginUrl" value="/jsp/login.jsp" />
+		<property name="loginUrl" value="/index.jsp" />
 		<!-- 权限认证失败，则跳转到指定页面 -->
 		<property name="unauthorizedUrl" value="/jsp/unauthorized.jsp" />
 		<!-- 自定义过滤器 -->
@@ -75,26 +75,22 @@
 			-->
 			<value>
 				<!-- 登陆 -->
-				/user/login=anon
-				<!-- 注册 -->
-				/jsp/regist.jsp=anon
+				/UserController/accountLogin*=anon
+				/UserController/checkUserID*=anon
+				/FaceServlet=anon
 				<!-- 主页面 -->
-				/jsp/index.jsp=authc
-				<!-- /jsp/sonpage*/**=roles[manager] -->
-				<!-- 商品采购（经理，仓库管理员） -->
-				/jsp/sonpage*/purchase*/**=roles["manager,stockman"]
-				<!-- 商品销售 （经理，收银员）-->
-				/jsp/sonpage*/sale*/**=roles["manager,cashier"]
-				<!-- 商品库存（经理，仓库管理员） -->
-				jsp/sonpage*/store*/**=roles["manager,stockman"]
+				/jsp/homePage.jsp=authc
+				
+				<!-- 商品销售 -->
+				/jsp/subPage/sale/**=roles["manager,stockman,cashier"]
+				<!-- 商品库存 -->
+				/jsp/subPage/store/**=roles["manager,stockman,cashier"]
 				<!-- 营业统计 -->
-				/jsp/sonpage*/statistics*/**=roles["manager,stockman,cashier"]
+				/jsp/subPage/statistics/**=roles["manager"]
 				<!-- 人事管理 -->
-				/jsp/sonpage*/clerk*/**=roles["manager"]
-				<!-- 系统维护 -->
-				/jsp/sonpage*/maintenance*/**=roles["manager"]
-				<!-- POS前台销售 -->
-				/jsp/pos.jsp=roles["manager,cashier"]
+				/jsp/subPage/clerk/**=roles["manager"]
+				<!-- POS收银 -->
+				/jsp/cashier.jsp=roles["manager,cashier"]
 			</value>
 		</property>
 	</bean>
