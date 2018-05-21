@@ -117,7 +117,6 @@
 		var password = document.getElementById("password").value;
 		var usernameReg=new RegExp("^[0-9]{1,11}$");
 		var passwordReg=new RegExp("^[A-Za-z0-9]{1,30}$");
-		//alert(username.value);
 		if (username == "") {
 			// 用户名非空验证
 			$("#login_warning").html("<font color='red'>用户名不能为空！</font>");
@@ -151,7 +150,6 @@
 				return false;
 			}
 		});
-		
 	}
 </script>
 <!-- 登录验证 -->
@@ -211,14 +209,12 @@ function func(){
 <!-- 获取焦点自动清除提示信息  -->
 <script type="text/javascript">
 function clearWarning(){
-	//alert("fuck");
 	$("#login_warning").html("");
 }
 </script>
 <!-- 异步登录 -->
 <script type="text/javascript">
 	function login(){
-		//alert("ffffffffff");
 		var username = document.getElementById("username").value;
 		var password = document.getElementById("password").value;
 		$.ajax({
@@ -244,28 +240,21 @@ function clearWarning(){
 	function convertCanvasToImage() {
 		var pic = document.getElementById("canvas").toDataURL("image/png");
 		pic = pic.replace(/^data:image\/(png|jpg);base64,/, "");
-		//alert("666");
 		$.ajaxFileUpload({
 			url : 'FaceServlet',
-			//fileElementId:'canvas',
 			data : {
 				imageData : pic
 			},
 			dataType : 'JSON',
 			success : function(data, status) {
-				
 				var result = data.toString().substr(5, data.length - 11);
-				//alert(','+$.trim(result)+',');
 				if($.trim(result) == "true"){
-					//alert("aa");
 					window.location.href="${pageContext.request.contextPath }/jsp/homePage.jsp"
 				}else{
 					$("#face_warning").html("<font color='red'>登录失败！</font>");
 				}
-				
 			},
 			error : function(data, status, e) {
-				//alert("验证失败...data:" + data + ",status:" + status + ",e:" + e);
 				alert("服务器响应失败处理函数或处理后台返回数据错误");
 			}
 		});

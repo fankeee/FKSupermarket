@@ -51,7 +51,6 @@ public class GoodsServiceImpl implements IGoodsService {
 
 		// startPage是告诉拦截器说我要开始分页了。分页参数是这两个。
 		Page pg = PageHelper.startPage(pageNo, pageSize);
-
 		PagedResult<Goods> result = BeanUtil.toPagedResult(goodsMapper.findAllGoods());
 		int p = (int) result.getPages();
 

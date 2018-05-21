@@ -68,18 +68,12 @@
 				flag = true;
 				$("#" + radio).val(g_num);
 				//购买相同的商品
-				/* $("#number-info-text").val(g_num); */
 				var price = Number(objs[i].parentNode.previousSibling.childNodes[0].value);
 				var fPrice = objs[i].parentNode.nextSibling.childNodes[0].value;
 				fPrice = price * g_num;
-				
 				objs[i].parentNode.nextSibling.childNodes[0].value = fPrice;
-				/* $("#price2-info-text").val(fPrice.toFixed(2)); */
 				//获取总金额
 				var totalPrice = Number($("#money-part1-2").text());
-				
-				//alert($("#money-part1-2").val());
-				
 				if (g_id == radio.value) {
 					//相同商品
 					totalPrice = totalPrice + price;
@@ -117,10 +111,8 @@
 					g_id : g_id
 					}
 				}).done(function(msg) {
-					
 					if(msg!=null){
 						var jsonObj = msg;
-						//alert("jjjjjjjjj"+jsonObj.g_name);
 						var num = document.getElementsByName("t1");
 						$("#showGoods").append("<tr name='trtr' class='trtr'><td name='t1' id='t1'>"
 															+ (num.length + 1)
@@ -139,10 +131,6 @@
 															+ "</td><input type='hidden' name='int1' value="
 															+ jsonObj.g_id+"></tr>");
 									var sum = Number(jsonObj.g_purchasePrice);
-
-									/* var totalsum=$("#price2-info-text").val();
-									alert(totalsum); */
-
 									//把NAN转成数字
 									//获取总金额
 									var price = Number($("#money-part1-2").text());
@@ -177,9 +165,7 @@
 	}
 	function findChange() {
 		var realMoney = Number($("#text1").val());
-		/* alert(realMoney); */
 		var finalPrice = Number($("#span1").val());
-		/* alert(finalPrice); */
 		var change = realMoney - finalPrice;
 		$("#zl-rest-son").html(change.toFixed(2));
 	}
