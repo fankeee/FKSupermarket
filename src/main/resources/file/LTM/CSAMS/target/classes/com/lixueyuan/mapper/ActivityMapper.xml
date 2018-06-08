@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.lixueyuan.mapper.ActivityMapper">
+
+
+	<!-- 1、通过活动编号查询活动信息 public Activity findActivityById(int id); -->
+	<select id="findActivityById" parameterType="java.lang.Integer" resultType="activity">
+		select * from T_activity where AC_id = #{AC_id}
+	</select>
+	
+	<!-- //2、分页查询未审批活动信息 -->
+	<select id="findAllActivity" parameterType="java.lang.String"
+		resultType="activity">
+		SELECT
+		*
+		FROM T_activity where AC_state=1
+		<if test="ac_theme!=null and ac_theme!=''">
+			and AC_theme = #{AC_theme}
+		</if>
+	</select>
+	
+	<!-- //3、根据活动主题模糊查询未审批活动 -->
+	<select id="findLikeNameActivity" parameterType="Map"
+		resultType="activity">
+		select * from T_activity 
+		<where>
+			<if test="AC_theme!=null and AC_theme!=''">
+				and AC_theme like '%${AC_theme}%'
+			</if>
+			<if test="AC_id!=null and AC_id!=''">
+		   and AC_id=#{AC_id}
+		   </if>
+		   and AC_state=1
+		</where>
+	</select>
+	
+	<!-- //4、添加活动 -->
+	<insert id="addActivity" parameterType="activity">
+		<!-- 添加主键 -->
+		<selectKey keyProperty="AC_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 添加其他 -->
+		insert into
+		T_activity(AC_theme,AC_organize, AC_undertaker,AC_people,AC_tel,AC_time,AC_location,AC_money,AC_state)
+		values(#{AC_theme},#{AC_organize},#{AC_undertaker},#{AC_people},#{AC_tel},#{AC_time},#{AC_location},#{AC_money},1)
+	</insert>
+	
+	<!-- //5、根据活动编号删除活动信息 -->
+	<delete id="delActivity" parameterType="int">
+		delete from T_activity
+		where AC_id=#{AC_id}
+	</delete>
+	
+	<!-- //6、修改活动信息 -->
+	<update id="updateActivity" parameterType="activity">
+		update T_activity set
+        AC_theme = #{AC_theme},AC_organize = #{AC_organize},AC_undertaker = #{AC_undertaker},AC_people = #{AC_people},AC_tel = #{AC_tel},AC_time = #{AC_time},AC_location = #{AC_location},AC_money = #{AC_money},AC_state=1
+		where AC_id=#{AC_id}
+	</update>
+	
+	<!-- //7查询所有已审核活动信息 (分页)-->
+	<select id="findAllCActivity" parameterType="java.lang.String"
+		resultType="activity">
+		SELECT
+		*
+		FROM T_activity where AC_state=0
+		<if test="ac_theme!=null and ac_theme!=''">
+			and AC_theme = #{AC_theme}
+		</if>
+	</select>
+	
+	<!-- //8、根据活动主题模糊查询已审批活动 -->
+	<select id="findLikeNameCActivity" parameterType="Map"
+		resultType="activity">
+		select * from T_activity 
+		<where>
+			<if test="AC_theme!=null and AC_theme!=''">
+				and AC_theme like '%${AC_theme}%'
+			</if>
+			<if test="AC_id!=null and AC_id!=''">
+		   and AC_id=#{AC_id}
+		   </if>
+		   and AC_state=0
+		</where>
+	</select>
+	
+	<!-- //9、审批(不同意) -->
+	<update id="updateActivityNById" parameterType="activity">
+		update T_activity set
+        AC_remark=#{arg0},AC_state=0
+		where AC_id=#{arg1}
+	</update>
+	
+	<!-- //10、审批 -->
+	<update id="updateActivityById" parameterType="activity">
+		update T_activity set
+        AC_state=0
+		where AC_id=#{arg1}
+	</update>
+	
+	<!-- 11、首页显示 -->
+	<select id="findshow" parameterType="java.lang.Integer" resultType="activity">
+		select * from t_activity where AC_state=0 order by DATE_FORMAT(AC_time,'%Y-%M-%D') desc limit 10;
+	</select>
+</mapper>

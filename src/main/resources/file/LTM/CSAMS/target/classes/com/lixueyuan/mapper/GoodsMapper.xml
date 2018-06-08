@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.lixueyuan.mapper.GoodsMapper">
+
+
+	<!-- //1、通过物品编号查询物品 -->
+	<select id="findGoodsById" parameterType="java.lang.Integer" resultType="goods">
+		select * from T_goods where G_id = #{g_id}
+	</select>
+	
+	<!-- //2、分页查询物品 -->
+	<select id="findAllGoods" parameterType="java.lang.String"
+		resultType="goods">
+		SELECT
+		G_id,G_name,G_num
+		FROM T_goods
+		<if test="g_name!=null and g_name!=''">
+			and G_name = #{g_name}
+		</if>
+	</select>
+	
+	<!-- //6、模糊查询物品 -->
+	<select id="findLikeNameGoods" parameterType="Map"
+		resultType="goods">
+		select *
+		from T_goods
+		<where>
+			<if test="g_name!=null and g_name!=''">
+				and G_name like '%${g_name}%'
+			</if>
+			<if test="g_id!=null and g_id!=''">
+		   and G_id=#{g_id}
+		   </if>
+		</where>
+	</select>
+	
+	<!-- //3、添加物品-->
+	<insert id="addGoods" parameterType="goods">
+		<!-- 添加主键 -->
+		<selectKey keyProperty="G_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 添加其他 -->
+		insert into
+		T_goods(G_name,G_num)
+		values(#{g_name},#{g_num})
+	</insert>
+	
+	<!-- //4、根据物品编号删除物品 -->
+	<delete id="delGoods" parameterType="int">
+		delete from T_goods
+		where G_id=#{g_id}
+	</delete>
+	
+	<!-- //5、修改物品信息-->
+	<update id="updateGoods" parameterType="goods">
+		update T_goods set
+       G_name = #{g_name}, G_num = #{g_num}
+		where G_id=#{g_id}
+	</update>
+	
+	<!-- //7、根据活动编号查询物品详细-->
+	<select id="findDetailGoods" parameterType="java.lang.Integer" resultType="goods">
+		select a.G_id,g.G_name,a.AL_num from T_actggoods a,T_goods g 
+		where a.G_id = g.G_id and a.AC_id=#{id} and a.G_id in (select G_id from T_actggoods where AC_id=#{id});
+	</select>
+</mapper>

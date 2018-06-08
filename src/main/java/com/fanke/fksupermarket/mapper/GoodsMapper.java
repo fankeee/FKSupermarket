@@ -58,4 +58,9 @@ public interface GoodsMapper {
 	 * @param g_id
 	 */
 	public void deleteGoodsById(Integer g_id);
+
+	/**
+	 * 缺货信息
+	 */
+	public List<Goods> outOfStock();
 }

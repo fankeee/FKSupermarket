@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.lixueyuan.mapper.ActgGoodsMapper">
+	
+	<!-- 添加活动物品 int addActivityGoods(ActgGoods actgGoods); -->
+	<insert id="addActivityGoods" parameterType="actgGoods" >
+		insert into
+		t_actggoods(g_id,AC_id, AL_num)
+		values(#{g_id},#{ac_id},#{al_num})
+	</insert>
+
+</mapper>

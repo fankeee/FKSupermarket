@@ -64,9 +64,10 @@ public class GoodsController {
 	 * @return
 	 */
 	@RequestMapping("conditionalQuery")
-	public String conditionalQuery(Model model, String g_name2) {
+	public String conditionalQuery(Model model, String g_name2, String c_name) {
 		Map<Object, Object> conditionalMap = new HashMap<Object, Object>();
 		conditionalMap.put("g_name", g_name2);
+		conditionalMap.put("c_name", c_name);
 		List<Goods> goodsList = goodsService.conditionalQuery(conditionalMap);
 		model.addAttribute("goodsList", goodsList);
 		return "subPage/store/storeson/store_son1";
@@ -92,10 +93,10 @@ public class GoodsController {
 	public String updateGoods(Integer g_id, String g_name, Float g_purchasePrice, Float g_sellingPrice, String g_unit,
 			String g_productionDate, String g_shelfLife, Integer g_inventory, Integer pro_id,
 			String g_productionAddress, Integer c_id) {
-		System.out.println(g_id+","+g_name+","+g_purchasePrice+","+g_sellingPrice+","
-			+g_unit+","+g_productionDate+","+g_shelfLife+","+","+g_inventory+","+","
-				+pro_id+","+g_productionAddress+","+c_id);
-		
+		System.out.println(g_id + "," + g_name + "," + g_purchasePrice + "," + g_sellingPrice + "," + g_unit + ","
+				+ g_productionDate + "," + g_shelfLife + "," + "," + g_inventory + "," + "," + pro_id + ","
+				+ g_productionAddress + "," + c_id);
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Goods goods = null;
 		try {
@@ -119,5 +120,18 @@ public class GoodsController {
 	public String deleteGoodsById(Integer g_id) {
 		goodsService.deleteGoodsById(g_id);
 		return "redirect:findAllGoods.action";
+	}
+
+	/**
+	 * 缺货预警
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("outOfStock")
+	public String outOfStock(Model model) {
+		List<Goods> outOfStockGoodsList = goodsService.outOfStock();
+		model.addAttribute("outOfStockGoodsList", outOfStockGoodsList);
+		return "subPage/store/storeson/store_son2";
 	}
 }

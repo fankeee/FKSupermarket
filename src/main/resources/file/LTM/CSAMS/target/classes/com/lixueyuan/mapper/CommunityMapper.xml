@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.lixueyuan.mapper.CommunityMapper">
+
+
+	<!-- 1、//1、通过社团联系人编号查询管理员public Community findCommunityById(int id); -->
+	<select id="findCommunityById" parameterType="java.lang.Integer" resultType="community">
+		select * from T_Community where C_id = #{c_id}
+	</select>
+	
+	<!-- //2、分页查询社团 -->
+	<select id="findAllCommunity" parameterType="java.lang.String"
+		resultType="community">
+		SELECT
+		C_id,C_name,C_people,C_num,C_sex,C_class,C_tel,C_qq,C_introduce
+		FROM T_Community
+		<if test="c_name!=null and c_name!=''">
+			and C_name = #{c_name}
+		</if>
+	</select>
+	
+	<!-- //3、模糊查询社团信息 -->
+	<select id="findLikeNameCommunity" parameterType="Map"
+		resultType="community">
+		select
+		C_id,C_name,C_people,C_num,C_sex,C_class,C_tel,C_qq,C_introduce
+		FROM T_Community
+		<where>
+			<if test="c_name!=null and c_name!=''">
+				and C_name like '%${c_name}%'
+			</if>
+			<if test="c_people!=null and c_people!=''">
+		   and C_people like '%${c_people}%'
+		   </if>
+		</where>
+	</select>
+	
+	<!-- //4、添加社团信息-->
+	<insert id="addCommunity" parameterType="community">
+		<!-- 添加主键 -->
+		<selectKey keyProperty="C_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 添加其他 -->
+		insert into
+		T_Community(R_id,C_name,C_people,C_num,C_sex,C_class,C_pwd,C_tel,C_qq,C_introduce)
+		values(2,#{c_name},#{c_people},#{c_num},#{c_sex},#{c_class},#{c_pwd},#{c_tel},#{c_qq},#{c_introduce})
+	</insert>
+	
+	<!-- //5、根据管理员编号删除社团联系人 -->
+	<delete id="delCommunity" parameterType="int">
+		delete from T_Community
+		where C_id=#{c_id}
+	</delete>
+	
+	<!-- //6、修改社团信息 -->
+	<update id="updateCommunity" parameterType="community">
+		update T_Community set
+         C_name = #{c_name}, C_people = #{c_people},C_class = #{c_class},C_tel = #{c_tel},C_qq = #{c_qq}
+		where C_id=#{c_id}
+	</update>
+	
+	<!-- //7、根据学号查找 -->
+	<select id="findCommunityByNum" parameterType="java.lang.String" resultType="community">
+		select * from T_Community where C_num = #{c_num}
+	</select>
+	
+	<!-- //8、修改密码 -->
+	<update id="updateCommunityPwd" parameterType="community">
+		update T_Community set
+        C_pwd = #{arg0}
+		where C_num=#{arg1}
+	</update>
+	
+	<!-- //9、查询社团信息 -->
+	<select id="findCommunity" parameterType="java.lang.String"
+		resultType="community">
+		select
+		C_id,C_name,C_people,C_num,C_sex,C_class,C_tel,C_qq,C_introduce
+		FROM T_Community where C_name not like '%学生会%'
+	</select>
+	
+	<!-- //10获取权限名称 public Set<String> getRoles(String c_num); -->
+	<select id="getRoles" parameterType="java.lang.String" resultType="java.lang.String">
+		select r.R_name from t_community c,t_role r where c.R_id=r.R_id and c.c_num=#{c_num}
+	</select>
+</mapper>

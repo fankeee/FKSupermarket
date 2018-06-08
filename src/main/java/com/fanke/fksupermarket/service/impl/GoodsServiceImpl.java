@@ -85,4 +85,10 @@ public class GoodsServiceImpl implements IGoodsService {
 		goodsMapper.deleteGoodsById(g_id);
 	}
 
+	@Override
+	public List<Goods> outOfStock() {
+		// TODO Auto-generated method stub
+		return goodsMapper.outOfStock();
+	}
+
 }

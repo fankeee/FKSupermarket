@@ -9,7 +9,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;  charset="UTF-8">
 		<title>商品销售统计</title>
-		<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/ss/bootstrap.min.css" /> --%>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/metro.min.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/css_for_table.css" />
 		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>

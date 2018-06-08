@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.lixueyuan.mapper.MemberMapper">
+
+
+	<!-- //1、通过会员编号查询会员 -->
+	<select id="findMemberById" parameterType="java.lang.Integer" resultType="member">
+		select * from t_merber where M_id = #{m_id}
+	</select>
+	
+	<!-- //2、分页查询会员 -->
+	<select id="findAllMember" parameterType="java.lang.String"  resultMap="membermap">
+		SELECT
+		M_id,M_name,M_sex,M_class,c.C_name,M_tel,M_qq
+		FROM T_merber m,T_community c where m.C_id=c.C_id and c.C_id !=0
+		<if test="M_name!=null and m_name!=''">
+			and M_name = #{m_name}
+		</if>
+	</select>
+	<resultMap type="member" id="membermap">
+		<!-- 映射member的结构 -->
+		<id column="m_id" property="m_id"/>
+		<result column="m_name" property="m_name"/>
+		<result column="m_sex" property="m_sex"/>
+		<result column="m_class" property="m_class"/>
+		<result column="m_tel" property="m_tel"/>
+		<result column="m_qq" property="m_qq"/>
+		<!-- 映射到community类：配置关联 -->
+			<association property="community" javaType="community">
+				<id column="C_id" property="C_id"/>
+				<result column="C_name" property="C_name"/>
+			</association>
+	</resultMap>
+	
+	<!-- //3、模糊查询会员-->
+	<select id="findLikeNameMember" parameterType="Map"  resultType="member">
+		select *
+		from T_merber
+		<where>
+			<if test="m_name!=null and m_name!=''">
+				and M_name like '%${m_name}%'
+			</if>
+			<if test="m_id!=null and m_id!=''">
+		   and M_id=#{m_id}
+		   </if>
+		</where>
+	</select>
+	
+	<!-- //4、添加会员-->
+	<insert id="addMember" parameterType="member">
+		<!-- 添加主键 -->
+		<selectKey keyProperty="M_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 添加其他 -->
+		insert into
+		T_merber(M_num,M_pwd,M_name,C_id,R_id,M_sex,M_class,M_tel,M_qq)
+		values(#{m_num},#{m_pwd},#{m_name},#{c_id},1,#{m_sex},#{m_class},#{m_tel},#{m_qq})
+	</insert>
+	
+	<!-- //5、根据会员编号删除会员-->
+	<delete id="delMember" parameterType="int">
+		delete from T_merber
+		where M_id=#{m_id}
+	</delete>
+	
+	<!-- //6、修改会员信息-->
+	<update id="updateMember" parameterType="member">
+		update T_merber set
+        M_name = #{m_name}, M_class = #{m_class}, M_tel = #{m_tel}, M_qq = #{m_qq}
+		where M_id=#{m_id}
+	</update>
+	
+	<!-- // 7根据学号查找 -->
+	<select id="findMemberByNum" resultType="member">
+		select * from T_merber where M_num = #{m_num}
+	</select>
+	
+	<!-- // 8修改密码 -->
+	<update id="updateMemberPwd" parameterType="member">
+		update T_merber set
+        M_pwd = #{arg0}
+		where M_num=#{arg1}
+	</update>
+	
+	<!-- //9获取权限名称 public Set<String> getRoles(String M_num);  -->
+	<select id="getRoles" parameterType="java.lang.String" resultType="java.lang.String">
+		select r.R_name from t_merber m,t_role r where r.R_id=m.R_id and m.M_num=#{M_num}
+	</select>
+</mapper>

@@ -55,10 +55,16 @@
 	
 	<!-- 条件查询 public List<Goods> conditionalQuery(Map<Object, Object> conditionalMap); -->
 	<select id="conditionalQuery" parameterType="HashMap" resultType="Goods">
-		select * from t_goods
+		select * from t_goods g, t_category c
 		<where>
 			<if test="g_name != null and g_name != '' ">
-				g_name like '%${g_name}%'
+				g.g_name like '%${g_name}%'
+			</if>
+			<if test="c_name != null and c_name != '' ">
+				and c.c_name like '%${c_name}%'
+			</if>
+			<if test="1 == 1">
+				and g.c_id = c.c_id
 			</if>
 		</where>
 	</select>
@@ -67,5 +73,11 @@
 	<delete id="deleteGoodsById" parameterType="java.lang.Integer">
 		delete from t_goods where g_id=#{g_id}
 	</delete>
+	
+	<!-- 缺货信息 public void outOfStock(); -->
+	<select id="outOfStock" resultType="Goods">
+		select * from t_goods
+		where g_inventory &lt;= 20
+	</select>
 	
 </mapper>

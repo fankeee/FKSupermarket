@@ -22,7 +22,7 @@ form {
 }
 
 .container-fluid {
-	background-color: black;
+	background-color: #6A6A6A;
 }
 
 #header {
@@ -155,6 +155,7 @@ form {
 
 #content {
 	height: 540px;
+	background-color: #EEEEEE;
 	/* border: 1px solid white; */
 }
 
@@ -267,7 +268,7 @@ form {
 	font-size: 50px;
 	margin-top: 160px;
 	font-weight: bold;
-	color: white;
+	color: #009587;
 }
 
 #money {
@@ -306,4 +307,17 @@ form {
 
 #member-info-text {
 	color: black;
+}
+
+tr {
+	background-color: black;
+}
+
+.simple-table table tr:first-child,
+th:first-child {
+	background: #2E363F;
+	color: #2E363F;
+	font-weight: bold;
+	font-size: 16px;
+	height: 35px;
 }

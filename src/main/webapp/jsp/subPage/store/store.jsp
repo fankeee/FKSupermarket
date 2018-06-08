@@ -35,28 +35,6 @@
 				color: #009587;
 			}
 		</style>
-		<script type="text/javascript">
-		$(function(){
-			var chosen = "<%=request.getParameter("chosen")%>";
-			if (chosen == "son1") {
-				$('#tabs-296400 li:eq(2) a').tab('show');
-			}
-			if (chosen == "son2") {
-				$('#tabs-296400 li:eq(1) a').tab('show');
-			}
-			if (chosen == "son3") {
-				$('#tabs-296400 li:eq(2) a').tab('show');
-			}
-			if (chosen == "son4") {
-				$('#tabs-296400 li:eq(3) a').tab('show');
-			}
-			if (chosen == "son5") {
-				$('#tabs-296400 li:eq(4) a').tab('show');
-			}
-			if (chosen == "son6") {
-				$('#tabs-296400 li:eq(5) a').tab('show');
-			}
-		});</script>
 	</head>
 
 	<body>
@@ -66,10 +44,16 @@
 					<li class="active">
 						<a href="#part1" data-toggle="tab" id="text-a">查询商品信息</a>
 					</li>
+					<li>
+						<a href="#part2" data-toggle="tab" id="text-a">缺货信息</a>
+					</li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-paneactive" id="part1">
+					<div class="tab-pane active" id="part1">
 						<iframe src="${pageContext.request.contextPath }/GoodsController/findAllGoods.action" id="framework-son" name="framework-son" frameborder="0"></iframe>
+					</div>
+					<div class="tab-pane" id="part2">
+						<iframe src="${pageContext.request.contextPath }/GoodsController/outOfStock.action" id="framework-son" name="framework-son" frameborder="0"></iframe>
 					</div>
 				</div>
 			</div>

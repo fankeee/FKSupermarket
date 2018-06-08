@@ -202,8 +202,8 @@
 		objs1 = document.querySelectorAll('*[name="int2"]');
 		var strsid = '';
 		var strnum = '';
-		alert("strsid=="+strsid);
-		alert("strnum=="+strnum);
+		//alert("strsid=="+strsid);
+		//alert("strnum=="+strnum);
 		var objte = Number($("#span1").val()); //总金额	
 		var uid = document.getElementById("operate").value;
 		for (var i = 0; i < objs.length; i++) {
@@ -317,7 +317,7 @@
 				</div>
 			</div>
 			<div class="col-md-5" id="company-info">
-				<div id="company-info1">
+				<%-- <div id="company-info1">
 					<span id="company-info1-1">企业名称： 
 						<span id="foot-part1-2"> ${enterprise.e_enterprisename }</span>
 					</span>
@@ -331,7 +331,7 @@
 					<span id="company-info1-1">公司地址： 
 						<span id="foot-part1-2">${enterprise.e_address }</span>
 					</span>
-				</div>
+				</div> --%>
 			</div>
 			<div class="col-md-3" id="money">
 				<div id="money-part1">

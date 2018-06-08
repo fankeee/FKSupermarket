@@ -63,4 +63,10 @@ public interface IGoodsService {
 	 */
 	void deleteGoodsById(Integer g_id);
 
+	/**
+	 * 缺货信息
+	 * @return 
+	 */
+	List<Goods> outOfStock();
+
 }

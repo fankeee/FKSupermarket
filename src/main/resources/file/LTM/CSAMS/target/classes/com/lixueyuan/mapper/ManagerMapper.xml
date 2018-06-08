@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.lixueyuan.mapper.ManagerMapper">
+
+
+	<!-- // 1根据id查询 -->
+	<select id="findManagerById" parameterType="java.lang.Integer" resultType="manager">
+		select * from T_manager where MA_id = #{MA_id}
+	</select>
+	
+	<!-- //2、分页查询管理员 -->
+	<select id="findAllManager" parameterType="java.lang.String"
+		resultMap="managermap">
+		SELECT
+		MA_id,MA_num,MA_name,MA_sex,MA_class,c.C_name,MA_position,MA_tel
+		FROM T_manager m,T_community c where m.MA_id=c.C_id
+		<if test="ma_name!=null and ma_name!=''">
+			and MA_name = #{MA_name}
+		</if>
+	</select>
+	<resultMap type="manager" id="managermap">
+		<!-- 映射manager的结构 -->
+		<id column="MA_id" property="MA_id"/>
+		<result column="MA_num" property="MA_num"/>
+		<result column="MA_name" property="MA_name"/>
+		<result column="MA_sex" property="MA_sex"/>
+		<result column="MA_class" property="MA_class"/>
+		<result column="MA_position" property="MA_position"/>
+		<result column="MA_tel" property="MA_tel"/>
+		<result column="MA_qq" property="MA_qq"/>
+		<!-- 映射到community类：配置关联 -->
+			<association property="community" javaType="community">
+				<id column="C_id" property="C_id"/>
+				<result column="C_name" property="C_name"/>
+			</association>
+	</resultMap>
+	
+	<!-- //3、模糊查询管理员 -->
+	<select id="findLikeNameManager" parameterType="Map"
+		resultType="manager">
+		select *
+		from T_manager
+		<where>
+			<if test="ma_name!=null and ma_name!=''">
+				and MA_name like '%${ma_name}%'
+			</if>
+			<if test="ma_id!=null and ma_id!=''">
+		   and MA_id=#{ma_id}
+		   </if>
+		</where>
+	</select>
+	
+	<!-- //4、添加管理员-->
+	<insert id="addManager" parameterType="manager">
+		<!-- 添加主键 -->
+		<selectKey keyProperty="MA_id" order="AFTER" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 添加其他 -->
+		insert into
+		T_manager(R_id,C_id,MA_num,MA_pwd,MA_name,MA_sex,MA_class,MA_position,MA_tel)
+		values(3,#{C_id},#{MA_num},#{MA_pwd},#{MA_name},#{MA_sex},#{MA_class},#{MA_position},#{MA_tel})
+	</insert>
+	
+	<!-- //5、根据管理员编号删除管理员 -->
+	<delete id="delManager" parameterType="int">
+		delete from T_manager
+		where MA_id=#{ma_id}
+	</delete>
+	
+	<!-- //6、修改管理员信息 -->
+	<update id="updateManager" parameterType="manager">
+		update T_manager set
+        MA_class = #{MA_class},MA_position = #{MA_position},MA_tel = #{MA_tel}
+		where MA_id=#{MA_id}
+	</update>
+	
+	<!-- // 7根据学号查找 -->
+	<select id="findManagerByNum" resultType="manager">
+		select * from T_manager where MA_num = #{MA_num}
+	</select>
+	
+	<!-- // 8修改密码 -->
+	<update id="updateManagerPwd" parameterType="manager">
+		update T_manager set
+        MA_pwd = #{arg0}
+		where MA_num=#{arg1}
+	</update>
+	
+	<!-- // 9获取权限名称 public Set<String> getRoles(String MA_num); -->
+	<select id="getRoles" parameterType="java.lang.String" resultType="java.lang.String">
+		select r.R_name from t_manager m,t_role r where r.R_id=m.R_id and m.MA_num=#{MA_num}
+	</select>	
+</mapper>

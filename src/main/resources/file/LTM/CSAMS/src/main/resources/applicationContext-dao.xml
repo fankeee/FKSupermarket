@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 1、加载db配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	
+	<!-- 2、数据库连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="30" />
+		<property name="maxIdle" value="5" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+	
+	<!-- 3、spring管理sqlsessionfactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- 加载数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 配置mybatis的bean别名 -->
+		<property name="typeAliasesPackage" value="com.lixueyuan.po" />
+		<property name="configLocation" value="classpath:/SqlMapConfig.xml"/>
+	</bean>
+	
+	<!-- 4、mapper扫描器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.lixueyuan.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
+	<!-- ===========================shiro=================================== -->
+	<!-- 自定义Realm -->
+	<bean id="myRealm" class="com.lixueyuan.realm.MyRealm" />
+
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="myRealm" />
+	</bean>
+
+	<!-- Shiro过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口,这个属性是必须的 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 身份认证失败，则跳转到登录页面的配置 -->
+		<property name="loginUrl" value="/jsp/sonpage/login.jsp" />
+		<!-- 权限认证失败，则跳转到指定页面 -->
+		<property name="unauthorizedUrl" value="/jsp/sonpage/unauthorized.jsp" />
+		<!-- 自定义过滤器 -->
+		<property name="filters">
+			<map>
+				<entry key="roles">
+					<bean class="com.lixueyuan.util.MyRolesAuthorizationFilter" />
+				</entry>
+			</map>
+		</property>
+		<!-- Shiro连接约束配置,即过滤链的定义 -->
+		<property name="filterChainDefinitions">
+			<!-- 
+				1、authc 表示需要认证的链接 
+				2、perms[/url] 表示该链接需要拥有对应的资源/权限才能访问 
+				3、roles[admin]表示需要对应的角色才能访问 
+				4、perms[admin:url] 表示需要对应角色的资源才能访问 
+			-->
+			<value>
+				<!-- 登陆 -->
+				/Manager/findManagerByNum=anon
+				/Community/findCommunityByNum=anon
+				/Member/findMemberByNum=anon
+				<!-- 注册 -->
+				/jsp/sonpage/regist.jsp=anon
+				<!-- 主页面 -->
+				/jsp/sonpage/index.jsp=authc
+				
+				
+				<!-- 示例：等号前面的路径需要后面的角色名才可以访问 （/jsp/sonpage*/community*/** 路径下的页面需要角色名为community的用户才可以访问）-->
+				
+				<!-- 添加会员 -->
+				/Community/findAllCommunity1*=roles["community,manager"]
+				<!-- 查询/修改会员 -->
+				/Member/findAllMember*=roles["community,manager"]
+				<!-- 删除会员 -->
+				/Member/findAllMember*=roles["community,manager"]
+				<!-- 物品管理 -->
+				/jsp/sonpage*/goods*/**=roles["community,manager"]
+				<!-- 系统管理员 -->
+				/jsp/sonpage*/manager*/**=roles["manager"]
+				<!-- 删除社团信息 -->
+				/Community*/findAllCommunity*=roles["manager"]
+				<!-- 添加社团信息 -->
+				/jsp/sonpage*/community*/communityson*/addcommunity.jsp=roles["manager"]
+				<!-- 修改社团信息 -->
+				/Community*/findAllCommunity*=roles["manager"]
+				<!-- 活动管理 -->
+				/jsp/sonpage*/activity*/**=roles["community,manager"]
+				<!-- 查询社团信息 -->
+				/Community*/findAllCu*=roles["community,manager"]
+				<!--  -->
+				/Activity*/addActivityGoods*=roles["community,manager,member"]
+			</value>
+		</property>
+	</bean>
+
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- 开启Shiro注解 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor" />
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+</beans>

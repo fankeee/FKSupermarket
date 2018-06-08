@@ -105,10 +105,9 @@
 			<form
 				action="${pageContext.request.contextPath }/GoodsController/conditionalQuery.action"
 				method="post">
-				<input type="search" name="g_name2" id="g_name2" class="simple-text"
-					placeholder="请输入名称查询" value="" /> 
-				<input type="submit"
-					name="btn-search" id="btn-search" value="查询" />
+					<input type="search" name="g_name2" id="g_name2" class="simple-text" placeholder="请输入名称查询" value="" /> 
+					<input type="search" name="c_name" id="c_name" class="simple-text" placeholder="请输入商品类别查询" value="" />
+					<input type="submit" name="btn-search" id="btn-search" value="查询" />
 			</form>
 		</div>
 		<table border="0" cellspacing="0" cellpadding="0">
