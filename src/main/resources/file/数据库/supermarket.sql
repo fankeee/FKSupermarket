@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-05-09 20:39:54
+Date: 2018-06-13 14:18:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -75,10 +75,9 @@ CREATE TABLE `t_goods` (
 -- ----------------------------
 -- Records of t_goods
 -- ----------------------------
-INSERT INTO `t_goods` VALUES ('11', '6', '11', '强生OB内置式普通型16支卫生棉条', '10', '20.5', '个', '2017-07-12', '两年', '387', '广东广州');
-INSERT INTO `t_goods` VALUES ('12', '6', '11', '妇炎洁女性私处洗液抑菌清爽280Ml', '15', '28.9', '瓶', '2016-08-12', '两年', '493', '广东广州');
-INSERT INTO `t_goods` VALUES ('13', '7', '12', '维达蓝色经典系列卫生纸巾3层140g27卷有芯卷纸', '20', '48.9', '个', '2016-08-12', '一年', '899', '广西南宁');
-INSERT INTO `t_goods` VALUES ('14', '7', '12', '舒洁湿厕纸家庭装40片*10包 ', '50', '81.9', '个', '2017-08-20', '一年', '500', '广西南宁');
+INSERT INTO `t_goods` VALUES ('11', '6', '11', '强生OB内置式普通型16支卫生棉条', '10', '20.5', '', '2017-07-12', '两年', '382', '广东广州');
+INSERT INTO `t_goods` VALUES ('13', '7', '12', '维达蓝色经典系列卫生纸巾3层140g27卷有芯卷纸', '20', '48.9', '', '2016-08-12', '一年', '898', '广西南宁');
+INSERT INTO `t_goods` VALUES ('14', '7', '12', '舒洁湿厕纸家庭装40片*10包 ', '50', '81.9', '', '2017-08-20', '一年', '499', '广西南宁');
 INSERT INTO `t_goods` VALUES ('15', '7', '12', '洁柔抽纸Face系列餐巾纸卫生纸3层120抽整箱20包', '20', '48.9', '个', '2016-08-12', '一年', '900', '广西南宁');
 INSERT INTO `t_goods` VALUES ('16', '7', '12', '理文本色手帕纸4层10张10包可湿水纸巾', '4', '8.9', '个', '2015-08-12', '三年', '300', '广西南宁');
 INSERT INTO `t_goods` VALUES ('17', '7', '12', '清风原木金装3层140抽*24包', '30', '59.9', '个', '2017-07-12', '一年', '500', '广西南宁');
@@ -86,9 +85,9 @@ INSERT INTO `t_goods` VALUES ('18', '8', '13', '蓝月亮洗衣液薰衣草亮�
 INSERT INTO `t_goods` VALUES ('19', '8', '13', '立白柠檬去油洗洁精1.5kg', '5', '9.9', '瓶', '2017-05-12', '一年', '450', '湖南长沙');
 INSERT INTO `t_goods` VALUES ('20', '8', '13', '威猛先生 厨房重油污净', '15', '20.9', '瓶', '2017-04-02', '一年', '300', '湖南长沙');
 INSERT INTO `t_goods` VALUES ('21', '8', '13', '超能洗衣液植翠低泡鲜艳亮丽2kg', '15', '18.9', '瓶', '2017-05-12', '一年', '299', '湖南长沙');
-INSERT INTO `t_goods` VALUES ('22', '8', '13', '金纺衣物护理剂', '10', '39.9', '瓶', '2017-05-12', '一年', '450', '湖南长沙');
+INSERT INTO `t_goods` VALUES ('22', '8', '13', '金纺衣物护理剂', '10', '39.9', '', '2017-05-12', '一年', '449', '湖南长沙');
 INSERT INTO `t_goods` VALUES ('23', '9', '14', '妙洁 一次性保鲜膜', '5', '10.5', '个', '2017-05-12', '一年', '300', '深圳市');
-INSERT INTO `t_goods` VALUES ('24', '9', '14', '哈尔斯家用保温壶304不锈钢水壶', '60', '99', '个', '2017-05-12', '三年', '197', '深圳市');
+INSERT INTO `t_goods` VALUES ('24', '9', '14', '哈尔斯家用保温壶304不锈钢水壶', '60', '99', '', '2017-05-12', '三年', '196', '深圳市');
 INSERT INTO `t_goods` VALUES ('25', '9', '14', '青苹果玻璃水壶水杯套装1壶4杯', '10', '29', '个', '2016-10-17', '一年', '100', '深圳市');
 INSERT INTO `t_goods` VALUES ('26', '9', '14', '爱仕达炒锅不粘锅电磁炉锅', '150', '229', '个', '2017-05-12', '三年', '100', '深圳市');
 INSERT INTO `t_goods` VALUES ('27', '9', '14', '紫丁香不锈钢网耐热玻璃泡茶壶 ', '7', '12', '个', '2017-05-12', '一年', '150', '深圳市');
@@ -181,14 +180,13 @@ CREATE TABLE `t_member` (
   `M_date` date DEFAULT NULL,
   `M_phone` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`M_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_member
 -- ----------------------------
-INSERT INTO `t_member` VALUES ('1', '孙雷', '50', '2012-12-12', '13559646531');
 INSERT INTO `t_member` VALUES ('2', '梦洁', '76', '2014-10-05', '13551346679');
-INSERT INTO `t_member` VALUES ('3', '雅静', '85', '2009-08-08', '13519634395');
+INSERT INTO `t_member` VALUES ('3', '静静', '85', '2009-08-08', '13519634395');
 INSERT INTO `t_member` VALUES ('4', '雨馨', '72', '2005-05-25', '13816492463');
 INSERT INTO `t_member` VALUES ('5', '振国', '98', '2015-02-20', '13525361498');
 INSERT INTO `t_member` VALUES ('6', '周杰', '83', '2016-12-16', '13766513596');
@@ -205,7 +203,6 @@ INSERT INTO `t_member` VALUES ('16', '赵敏', '68', '2002-01-30', '13766128647'
 INSERT INTO `t_member` VALUES ('17', '姜明', '82', '2001-01-27', '13553546154');
 INSERT INTO `t_member` VALUES ('18', '李鸥', '96', '2015-10-15', '13869875457');
 INSERT INTO `t_member` VALUES ('19', '雅馨', '97', '2013-11-13', '13591454527');
-INSERT INTO `t_member` VALUES ('20', '胡海', '45', '2013-06-18', '13553988235');
 
 -- ----------------------------
 -- Table structure for t_privilege
@@ -284,7 +281,7 @@ CREATE TABLE `t_saleorder` (
   PRIMARY KEY (`S_id`),
   KEY `FK_Relationship_3` (`U_id`),
   CONSTRAINT `FK_Relationship_3` FOREIGN KEY (`U_id`) REFERENCES `t_user` (`U_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_saleorder
@@ -399,6 +396,11 @@ INSERT INTO `t_saleorder` VALUES ('115', '1001', '15', '2018-05-07');
 INSERT INTO `t_saleorder` VALUES ('116', '1001', '60', '2018-05-07');
 INSERT INTO `t_saleorder` VALUES ('117', '1001', '10', '2018-05-07');
 INSERT INTO `t_saleorder` VALUES ('118', '1001', '6.5', '2018-05-07');
+INSERT INTO `t_saleorder` VALUES ('119', '1001', '10', '2018-05-11');
+INSERT INTO `t_saleorder` VALUES ('120', '1001', '120', '2018-06-02');
+INSERT INTO `t_saleorder` VALUES ('121', '1001', '20', '2018-06-02');
+INSERT INTO `t_saleorder` VALUES ('122', '1001', '27', '2018-06-02');
+INSERT INTO `t_saleorder` VALUES ('123', '1001', '10', '2018-06-02');
 
 -- ----------------------------
 -- Table structure for t_saleorderdetail
@@ -414,7 +416,7 @@ CREATE TABLE `t_saleorderdetail` (
   KEY `FK_Relationship_5` (`S_id`),
   CONSTRAINT `FK_Relationship_4` FOREIGN KEY (`G_id`) REFERENCES `t_goods` (`G_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_Relationship_5` FOREIGN KEY (`S_id`) REFERENCES `t_saleorder` (`S_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_saleorderdetail
@@ -428,7 +430,6 @@ INSERT INTO `t_saleorderdetail` VALUES ('6', '1008', '2', '6');
 INSERT INTO `t_saleorderdetail` VALUES ('7', '1009', '2', '11');
 INSERT INTO `t_saleorderdetail` VALUES ('8', '1010', '2', '15');
 INSERT INTO `t_saleorderdetail` VALUES ('9', '11', '2', '20');
-INSERT INTO `t_saleorderdetail` VALUES ('10', '12', '2', '8');
 INSERT INTO `t_saleorderdetail` VALUES ('11', '13', '3', '5');
 INSERT INTO `t_saleorderdetail` VALUES ('12', '14', '3', '8');
 INSERT INTO `t_saleorderdetail` VALUES ('13', '15', '3', '6');
@@ -629,6 +630,15 @@ INSERT INTO `t_saleorderdetail` VALUES ('208', '21', '115', '1');
 INSERT INTO `t_saleorderdetail` VALUES ('209', '24', '116', '1');
 INSERT INTO `t_saleorderdetail` VALUES ('210', '24', '117', '1');
 INSERT INTO `t_saleorderdetail` VALUES ('211', '24', '118', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('212', '11', '119', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('213', '11', '120', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('214', '14', '120', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('215', '24', '120', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('216', '11', '121', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('217', '22', '121', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('218', '11', '122', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('219', '13', '122', '1');
+INSERT INTO `t_saleorderdetail` VALUES ('220', '11', '123', '1');
 
 -- ----------------------------
 -- Table structure for t_user
@@ -645,7 +655,7 @@ CREATE TABLE `t_user` (
   PRIMARY KEY (`U_id`),
   KEY `FK_Relationship_6` (`R_id`),
   CONSTRAINT `FK_Relationship_6` FOREIGN KEY (`R_id`) REFERENCES `t_role` (`R_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1016 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1025 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
@@ -653,7 +663,7 @@ CREATE TABLE `t_user` (
 INSERT INTO `t_user` VALUES ('1000', '1', '666', 'fanke', '42', '男', '18778390782');
 INSERT INTO `t_user` VALUES ('1001', '1', '666', '覃璠科', '18', '男', '13557730506');
 INSERT INTO `t_user` VALUES ('1002', '3', '666', 'fankeee', '28', '男', '17896451237');
-INSERT INTO `t_user` VALUES ('1004', '2', '888', '989789', '54', '54', '16877991236');
+INSERT INTO `t_user` VALUES ('1004', '2', '888', '989789', '54', '女', '16877991236');
 INSERT INTO `t_user` VALUES ('1005', '2', '666666', '龙华', '27', '男', '18975421003');
 INSERT INTO `t_user` VALUES ('1006', '3', '111222', '于海滨', '22', '女', '19087653421');
 INSERT INTO `t_user` VALUES ('1007', '3', '222333', '蒋明明', '20', '女', '18756920654');
@@ -663,3 +673,4 @@ INSERT INTO `t_user` VALUES ('1010', '3', '555666', '苟富贵', '26', '女', '1
 INSERT INTO `t_user` VALUES ('1011', '3', '666777', '胡仨', '26', '女', '18796565666');
 INSERT INTO `t_user` VALUES ('1014', '1', '123', '张小明', '25', '男', '7878889');
 INSERT INTO `t_user` VALUES ('1015', '1', '123', '王鹏鹏', '28', '男', '700000');
+INSERT INTO `t_user` VALUES ('1024', '3', '666777', 'fankee', '22', '男', '13557730506');

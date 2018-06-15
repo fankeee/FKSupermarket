@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+
+</title>
+    <style type="text/css">
+
+ p.MsoNormal
+	{margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;
+	        margin-left: 0cm;
+            margin-right: 0cm;
+            margin-top: 0cm;
+        }
+table.MsoTableGrid
+	{border:solid windowtext 1.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	}
+    </style>
+</head>
+<body>
+    <p align="center" class="MsoNormal" style="text-align:center">
+        <b><span style="font-size:18.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">桂林理工大学毕业设计（论文）修改说明表</span><span lang="EN-US" style="font-size:18.0pt"><o:p></o:p></span></b></p>
+    <table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+ mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt" width="0">
+        <tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+            <td style="width:53.2pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="71">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">题目</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+            </td>
+            <td colspan="5" style="width:435.0pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="580">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span lang="EN-US" style="font-size:14.0pt"><o:p>&nbsp;支持人脸识别的超市收银系统研发</o:p></span></p>
+            </td>
+        </tr>
+        <tr style="mso-yfti-irow:1">
+            <td style="width:53.2pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="71">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">学号</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+            </td>
+            <td style="width:109.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="146">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span lang="EN-US" style="font-size:14.0pt"><o:p>&nbsp;3140757208</o:p></span></p>
+            </td>
+            <td style="width:81.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="108">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">学生姓名</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+            </td>
+            <td style="width:81.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="108">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span lang="EN-US" style="font-size:14.0pt"><o:p>&nbsp;覃璠科</o:p></span></p>
+            </td>
+            <td style="width:56.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="75">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">专业</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+            </td>
+            <td style="width:106.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="142">
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span lang="EN-US" style="font-size:14.0pt"><o:p>&nbsp;网络工程</o:p></span></p>
+            </td>
+        </tr>
+        <tr style="mso-yfti-irow:2;height:127.0pt">
+            <td colspan="6" style="width:488.2pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:127.0pt" valign="top" width="651">
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span style="font-size:
+  14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">评阅教师对毕业设计（论文）的修改建议：</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span lang="EN-US" style="font-size:14.0pt;font-family:&quot;Arial&quot;,sans-serif"><o:p>&nbsp;论文部分格式需修改，如页眉。
+增加人脸识别登录的描述。</o:p></span></p>
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span lang="EN-US" style="font-size:14.0pt"><o:p>&nbsp;</o:p></span></p>
+                <p align="center" class="MsoNormal" style="text-align:center">
+                    <span lang="EN-US" style="font-size:14.0pt"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">评阅教师签名：</span><span lang="EN-US" style="font-size:14.0pt"><o:p><img src='http://bylw.glut.edu.cn//DaYin/dzname/2007056.jpg'  width='100' height='50' runat='server' /></o:p></span></p>
+            </td>
+        </tr>
+        
+        <tr style="mso-yfti-irow:4;height:4.5pt">
+            <td colspan="6" style="width:488.2pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:4.5pt" valign="top" width="651">
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span style="font-size:
+  14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">答辩小组对毕业设计（论文）的修改建议：</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span lang="EN-US" style="font-size:14.0pt"><o:p>&nbsp;增加预警提醒/商品类别查询</o:p></span></p>
+                <p class="MsoNormal">
+                    <span lang="EN-US" style="font-size:14.0pt"><o:p>&nbsp;</o:p></span></p>
+                <p class="MsoNormal">
+                    <span lang="EN-US" style="font-size:14.0pt"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">答辩小组组长签名：</span><span lang="EN-US" style="font-size:14.0pt"><o:p><img src='http://bylw.glut.edu.cn//DaYin/dzname/2007056.jpg'  width='100' height='50' runat='server' /></o:p></span></p>
+            </td>
+        </tr>
+        
+        <tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes">
+            <td colspan="6" style="width:488.2pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="651">
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span style="font-size:
+  14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">根据毕业设计（论文）修改建议，论文修改的主要内容如下（此部分由学生填写，指导教师审核确认）：</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span lang="EN-US" style="font-size:14.0pt;font-family:&quot;Arial&quot;,sans-serif"><o:p>&nbsp;1、修改了页眉，并对其它格式问题也进行了逐一核查。
+2、在4.1.2小节中增加了对百度回传数据中所包含的信息解析。
+3、对于商品库存模块的查询商品信息功能中，在已有可按商品名称模糊查询的基础上增加可以按商品类别模糊查询的条件，相关介绍内容详见4.4.1小节中关于按商品类别查询的描述。
+4、在论文中增加子4.4.2小节，介绍商品库存预警功能的设计与实现。</o:p></span></p>
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span lang="EN-US" style="font-size:14.0pt;font-family:&quot;Arial&quot;,sans-serif"><o:p>&nbsp;</o:p></span></p>
+                <p align="left" class="MsoNormal" style="text-align:left">
+                    <span lang="EN-US" style="font-size:14.0pt"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">学生签名：</span><span lang="EN-US" style="font-size:14.0pt"><span style="mso-spacerun:yes">&nbsp;覃璠科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+  minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">指导教师签名：</span><span lang="EN-US" style="font-size:14.0pt;font-family:&quot;Arial&quot;,sans-serif"><o:p><img src='http://bylw.glut.edu.cn//DaYin/dzname/2002018.jpg'  width='100' height='50' runat='server' /></o:p></span></p>
+            </td>
+        </tr>
+    </table>
+    <p align="left" class="MsoNormal" style="text-align:left">
+        <span style="font-size:
+14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:
+Calibri;mso-hansi-theme-font:minor-latin">备注：</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+    <p align="left" class="MsoNormal" style="text-align:left">
+        <span lang="EN-US" style="font-size:14.0pt">1. </span><span style="font-size:14.0pt;font-family:
+宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;
+mso-hansi-theme-font:minor-latin">学生应根据修改建议及时修改论文，答辩结束后三天内提交修改后的毕业设计（论</span><span style="font-size:14.0pt"> <span lang="EN-US"><o:p></o:p></span></span>
+    </p>
+    <p align="left" class="MsoNormal" style="text-align:left">
+        <span lang="EN-US" style="font-size:14.0pt"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-size:14.0pt;font-family:宋体;mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:宋体;mso-fareast-theme-font:
+minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin">文）（纸质与电子版）及《毕业设计（论文）修改说明表》，否则，将影响毕业设计（论文）成绩。</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+    <p align="left" class="MsoNormal" style="text-align:left">
+        <span lang="EN-US" style="font-size:14.0pt">2. </span><span style="font-size:14.0pt;font-family:
+宋体;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:
+宋体;mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:Calibri;
+mso-hansi-theme-font:minor-latin">此表填好后放入学生毕业设计（论文）档案袋中，备查。</span><span lang="EN-US" style="font-size:14.0pt"><o:p></o:p></span></p>
+    <p align="left" class="MsoNormal" style="text-align:left">
+        <b><span lang="EN-US" style="font-size:18.0pt;font-family:宋体;mso-bidi-font-family:宋体"><o:p>&nbsp;</o:p></span></b></p>
+</body>
+</html>
